@@ -5,9 +5,10 @@ import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 
 // Custom imports
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Contact from './components/Contact';
 import User from './components/Users';
+import Notfound from './components/Notfound';
 
 const Routing = (
 	<Router>
@@ -19,9 +20,12 @@ const Routing = (
 				<li><Link to="/contact" >Contact</Link></li>
 			</ul>
 			
+			<Switch>
 			<Route exact path="/" component={ App } />
 			<Route path="/users" component={ User } />
 			<Route path="/contact" component={ Contact } />
+			<Route component={ Notfound } />
+			</Switch>
 		</div>
 	</Router>
 );
